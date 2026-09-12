@@ -75,6 +75,11 @@ export const login = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export const getMe = asyncHandler(async (req: Request, res: Response) => {
-  // Placeholder until we add Auth Middleware to set req.user
-  res.json({ message: 'getMe endpoint - Requires auth middleware' });
+  res.json({
+    _id: req.user?._id,
+    name: req.user?.name,
+    email: req.user?.email,
+    role: req.user?.role,
+    status: req.user?.status
+  });
 });

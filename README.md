@@ -149,5 +149,5 @@ swift-delivery/
 - [x] **Phase 3:** Mongoose data models & schemas
 - [x] **Phase 4:** Database relationships & indexing
 - [x] **Phase 5:** Express backend core services
-- [ ] **Phase 6:** JWT Authentication & Role-Based Access Control (RBAC)
+- [x] **Phase 6:** JWT Authentication & Role-Based Access Control (RBAC)
 - [ ] *(Remaining phases up to Phase 38)*

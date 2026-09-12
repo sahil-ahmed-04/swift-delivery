@@ -5,7 +5,8 @@ import { OrderStatus } from '../constants/enums';
 import { asyncHandler } from '../utils/asyncHandler';
 
 export const createOrder = asyncHandler(async (req: Request, res: Response) => {
-  const { customerId, storeId, items, deliveryAddress } = req.body;
+  const { storeId, items, deliveryAddress } = req.body;
+  const customerId = req.user?._id;
 
   if (!items || items.length === 0) {
     res.status(400);
