@@ -5,6 +5,7 @@ import { storeRoutes } from './store.routes';
 import { categoryRoutes } from './category.routes';
 import { productRoutes } from './product.routes';
 import { orderRoutes } from './order.routes';
+import { userRoutes } from './user.routes';
 
 export const routes = Router();
 
@@ -14,21 +15,15 @@ routes.get('/health', (req: Request, res: Response) => {
     status: 'UP',
     version: '0.1.0',
     timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || 'development'
+    environment: process.env.NODE_ENV || 'development',
   });
 });
 
-// Mount modular routes
+// Modular Routes
 routes.use('/auth', authRoutes);
+routes.use('/users', userRoutes);
 routes.use('/stores', storeRoutes);
 routes.use('/categories', categoryRoutes);
 routes.use('/products', productRoutes);
 routes.use('/orders', orderRoutes);
 
-// Mock Users/Delivery endpoints (To be implemented fully later)
-routes.get('/users', (req, res) => {
-  res.status(200).json([]);
-});
-routes.get('/delivery/available', (req, res) => {
-  res.status(200).json([]);
-});
