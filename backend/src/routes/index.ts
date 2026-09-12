@@ -1,5 +1,11 @@
 import { Router, Request, Response } from 'express';
 
+import { authRoutes } from './auth.routes';
+import { storeRoutes } from './store.routes';
+import { categoryRoutes } from './category.routes';
+import { productRoutes } from './product.routes';
+import { orderRoutes } from './order.routes';
+
 export const routes = Router();
 
 // Health Check
@@ -12,31 +18,17 @@ routes.get('/health', (req: Request, res: Response) => {
   });
 });
 
-// Phase 1 Mock Routes
+// Mount modular routes
+routes.use('/auth', authRoutes);
+routes.use('/stores', storeRoutes);
+routes.use('/categories', categoryRoutes);
+routes.use('/products', productRoutes);
+routes.use('/orders', orderRoutes);
 
-routes.post('/auth/register', (req: Request, res: Response) => {
-  res.status(201).json({ id: 'user_mock', ...req.body, role: 'CUSTOMER', status: 'ACTIVE' });
+// Mock Users/Delivery endpoints (To be implemented fully later)
+routes.get('/users', (req, res) => {
+  res.status(200).json([]);
 });
-
-routes.post('/auth/login', (req: Request, res: Response) => {
-  const role = req.body.email.includes('admin') ? 'ADMIN' : 'CUSTOMER';
-  res.status(200).json({
-    accessToken: `mock.token.${role}`,
-    user: { email: req.body.email, role, status: 'ACTIVE' }
-  });
+routes.get('/delivery/available', (req, res) => {
+  res.status(200).json([]);
 });
-
-routes.get('/auth/me', (req: Request, res: Response) => {
-  res.status(200).json({ id: 'user_mock', email: 'test@swiftdelivery.in', role: 'CUSTOMER', status: 'ACTIVE' });
-});
-
-// Mock stores, products, orders to match Phase 1 exactly
-routes.get('/stores', (req, res) => res.status(200).json([]));
-routes.post('/stores', (req, res) => res.status(201).json(req.body));
-routes.get('/products', (req, res) => res.status(200).json([]));
-routes.post('/products', (req, res) => res.status(201).json(req.body));
-routes.get('/categories', (req, res) => res.status(200).json([]));
-routes.get('/orders', (req, res) => res.status(200).json([]));
-routes.post('/orders', (req, res) => res.status(201).json(req.body));
-routes.get('/users', (req, res) => res.status(200).json([]));
-routes.get('/delivery/available', (req, res) => res.status(200).json([]));

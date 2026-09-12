@@ -147,7 +147,7 @@ swift-delivery/
 - [x] **Phase 1:** Project Architecture, Monorepo Layout, and Git Workflow
 - [x] **Phase 2:** MongoDB fundamentals & connection setup
 - [x] **Phase 3:** Mongoose data models & schemas
-- [ ] **Phase 4:** Database relationships & indexing
-- [ ] **Phase 5:** Express backend core services
+- [x] **Phase 4:** Database relationships & indexing
+- [x] **Phase 5:** Express backend core services
 - [ ] **Phase 6:** JWT Authentication & Role-Based Access Control (RBAC)
 - [ ] *(Remaining phases up to Phase 38)*
