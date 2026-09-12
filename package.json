@@ -1,0 +1,21 @@
+{
+  "name": "swift-delivery",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Swift Delivery — Full-Stack Next.js Hyperlocal Delivery Platform",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "build:backend": "npm --prefix backend run build"
+  },
+  "keywords": [
+    "hyperlocal",
+    "delivery",
+    "nextjs",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": "",
+  "license": "UNLICENSED"
+}
